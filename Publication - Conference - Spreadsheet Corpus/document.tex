@@ -1,0 +1,146 @@
+\documentclass{sig-alternate} % Mandatory
+
+\begin{document}
+
+\conferenceinfo{ICSE}{'15 Florence}
+\title{Drawing Generalizable Conclusions about Software:\\A Sampling Technique and New Spreasheet Corpus}
+% \numberofauthors{4}
+% \author{
+% Yoonki Song, Titus Barik, Brittany Johnson, and Emerson Murphy-Hill\\
+% \affaddr{Department of Computer Science}\\
+% \affaddr{North Carolina State University}\\
+% \affaddr{Raleigh, North Carolina, USA}\\
+% \{\href{mailto:ysong2@ncsu.edu}{ysong2},
+%   \href{mailto:tbarik@ncsu.edu}{tbarik},
+%   \href{mailto:bijohnso@ncsu.edu}{bijohnso}\}@ncsu.edu,
+%   \href{mailto:emerson@csc.ncsu.edu}{emerson}@csc.ncsu.edu\\
+% }
+
+%-----------------------------------------------------------------------------%
+\maketitle
+
+\begin{abstract}
+Spreadsheets users are the largest group of software developers on
+the planet, and much of what researchers know about this group derives
+from the EUSES corpus, a corpus that includes about 5,000 spreadsheets
+mined from the internet a decade ago.
+While the EUSES corpus has yielded many interesting research results,
+researchers have questioned how representative the EUSES corpus is of 
+all existing spreadsheets.
+In this paper, we introduce a new spreadsheet corpus more than
+two orders of magnitude larger than the EUSES corpus
+and describe a new sampling techinque that allows researchers to 
+create their own open-source corpus that is representative of 
+a closed-source corpus.
+%TODO what follows is technically an eval -- does our technique produce more representative
+%	corpus with respect to three studies?
+We illustrate the utility of our corpus and our technique by 
+highlighting the differences between corpuses, including by
+replicating three small spreadsheet studies on different
+corpuses.
+%TODO maybe some results, whatever they are
+\end{abstract}
+
+\section{Introduction}
+
+Spreadsheets are an important type of software development.
+-how many people use them,
+-examples of errors and their impact (e.g, Reinhard and Rogoff)
+
+There's existing rich-reasearch on spreadsheets.
+Examples.
+
+Much of it relies on the EUSES corpus.
+Where corpus comes from, how it was derived, how many spreadsheets.
+
+The spreadsheet community has questioned whether the corpus
+is representative of the population of spreadsheets.
+Examples, probably from threats sections.
+Impact: if not representative, conclusions do not generalize.
+Example from prior paper.
+
+In this paper, we present a technique that enables researchers
+to draw more generalizable conclusions in their studies.
+In a nutshell, the technique involves\ldots
+
+Although this paper focuses on spreadsheets, in reality 
+spreadsheets are a microcosm of broader software development,
+and consequently the techniques presented here can be used for other 
+types of software as well.
+
+The contributions of this paper are:
+
+\begin{itemize}
+  \item A technique for creating representative samples of open-source
+  		software;
+  \item An open-source corpus of spreadsheets more than two orders of magnitude larger
+ 		than the existing state of the art, along with a never-before analyzed
+ 		pseudo-closed-source corpus;
+  \item A set of distributions of real closed-source spreadsheets that can be
+  		used as parameters to our technique; and
+  \item An evaluation that suggests our technique can produce more representative
+  		results than using the existing state of the art corpus.
+\end{itemize}
+
+\section{Prior Work}
+
+Maybe a bit more depth in spreadsheet research, showing how serious it is.
+
+A good bit from Mei Nagappan's representativeness paper~\cite{nag13}.
+
+\section{Our Technique}
+
+Based on that sampling thing represented by the stats professor.
+
+Section closing: talk about you need a good corpus to sample from.
+
+\section{Our Open-Source Corpus}
+
+We took this opportunity to update the old corpus, using roughly similar
+methodology.
+
+\subsection{Mining Methodology}
+
+How we mined the web.
+
+\subsection{Corpus Characterization}
+
+Number of spreadsheets, a few stats about them.
+
+Distribution comparison to EUSES here?
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{functions.png}
+\caption{Distribution of number of fuctions per spreadsheet, for 3 spreadsheet corpuses.}
+\label{fig:effectiveness}
+\end{figure}
+
+\section{A Pseudo-Closed Source Corpus}
+
+Enron. Kinda like Netscape.
+
+\subsection{Methodology}
+
+Pull down all attachments, keep the spreadsheets.
+
+\subsection{Corpus Characteristics}
+
+\section{Distributions from Real Closed-Source Code}
+
+Describe dataset.
+Talk about distribution. (plot distribution on same axis, maybe three different metrics).
+
+\section{Evaluation}
+
+RQ1: Are distributions statistically significantly different for the spreadsheet sets discussed here?
+RQ2: Do the conclusions from existing studies change depending on what corpus they use? (Compare uses to others)
+RQ3: Do conclusions drawn using our sampling technique better approximate conclusions from original sample?
+
+\section{Limtations}
+
+Limitations of both the technique, and the study.
+
+\section{Conclusions}
+
+\end{document}

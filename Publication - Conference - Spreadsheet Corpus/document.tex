@@ -50,11 +50,12 @@ Spreadsheets are an important type of software development.
 There's existing rich-reasearch on spreadsheets.
 Examples.
 
-Much of it relies on the EUSES corpus.
+\subsection{State of the art}
+Currently, the most used corpus for spreadsheet analysis is the EUSES corpus. This corpus contains spreadsheets obtained mainly by searching in search engines, so it contains spreadsheets that are publicly available. However, industrial case studies performed by us and other researchers have raised questions about the representativeness of this corpus, as spreadsheets we  encounter in industry tend to be bigger and be more complex. Hence, we believe there is a need for a corpus providing a more realistic test set for spreadsheet researchers.
+
 Where corpus comes from, how it was derived, how many spreadsheets.
 
-The spreadsheet community has questioned whether the corpus
-is representative of the population of spreadsheets.
+
 Examples, probably from threats sections.
 Impact: if not representative, conclusions do not generalize.
 Example from prior paper.
@@ -116,15 +117,24 @@ Distribution comparison to EUSES here?
 \label{fig:effectiveness}
 \end{figure}
 
-\section{A Pseudo-Closed Source Corpus}
+\section{The Enron Data Set}
 
-Enron. Kinda like Netscape.
+While the sample of the Google spreadsheets provides us with a better set than the current EUSES corpus, it still misses the context of real-life industry spreadsheets. Therefore we present a second data set in the paper, derived from the Enron E-mail Archive. This is an large database of over 600,000 emails containing emails from by 158 Enron employees, which was purchased and released by researchers at the University of Massachusetts Amherst. 
 
-\subsection{Methodology}
+\subsection{Data}
+First, we requested the most recent version of the dataset, via this form. We got access to v1.3, last updated 29 July, 2013. This version contains 130 folders (one per employee, each containing one or more pst file) with 190 pst files, and is 53 gigs in size.
 
-Pull down all attachments, keep the spreadsheets.
+\subsection{Getting the spreadsheets}
+Using the systool's outlook attachment extractor TODO: link, we obtained the spreadsheets from the pst. With the extractor, obtaining all spreadsheets took about 6 hours, on an i7 machine with 16 gig memory. In total, the email set contains 265,586 files (32.3 gigs), of which over 50.000 are Excel files. Among those files are 11.985 unique spreadsheets.
 
-\subsection{Corpus Characteristics}
+\subsubsection{Analysis}
+For all the spreadsheets, we ran the Spreadsheet Scantool, developed at Delft University of Technology. This tool runs on the previously developed Breviz core, made for spreadsheet visualization and smell detection. TODO: References. 11.136 spreadsheets could be analyzed, the others were corrupt, password protected, or otherwise unreadable.
+
+\subsection{The spreadsheets}
+\subsubsection{Worksheets}
+In total, the 11.136 spreadsheets contain 49,872 worksheets. This is a aveage of 4.4 worksheets per spreadsheet. Most spreadsheets have 3 worksheets, most likely because this is the default number of worksheets in 
+
+\section{Conclusion}
 
 \section{Distributions from Real Closed-Source Code}
 

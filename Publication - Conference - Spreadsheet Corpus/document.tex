@@ -147,6 +147,54 @@ RQ1: Are distributions statistically significantly different for the spreadsheet
 RQ2: Do the conclusions from existing studies change depending on what corpus they use? (Compare uses to others)
 RQ3: Do conclusions drawn using our sampling technique better approximate conclusions from original sample?
 
+\subsection{RQ1}
+
+\subsection{RQ2}
+
+We next replicate three prior studies about spreadsheets in our new corpora,
+with an aim towards understanding how results differ when different corpora are
+used for evaluation purposes.
+
+\subsection{CheckCell}
+
+Our first replication is an evaluation of Barowy, Gochev, and Berger's
+CheckCell tool~\cite{Barowy14}, a tool that was built to identify spreadsheet
+cells that have an inordanately high impact on calculations.
+The intuition is that such cells may contain data input errors.
+
+As part of their evaluation, CheckCell's authors wanted to know whether checkcell runs efficiently
+To evaluate efficiency, the authors randomly selected 64 spreadsheets that contained at least one
+formula from the EUSES corpus, then ran their analysis on a commodity laptop.
+They conclude, ``For most of the spreadsheets, CheckCell completes its analysis in under 50 seconds;
+for all but two, it completes in under five minutes.''
+The results for all spreadsheets are shown as blue bars on Figure~\ref{fig:effectiveness}.
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{checkcell.png}
+\caption{CheckCell efficiency data.}
+\label{fig:effectiveness}
+\end{figure}
+
+We first used our VCL infrastructure to run CheckCell on all EUSES spreadsheets; we assume
+that Borowy and colleagues did not do this originally for efficiency reasons.
+We then ran the results on each of our other data sets.
+The results are overlaid on Figure~\ref{fig:effectiveness}.
+We then performed an unpaired t-test to determine whether there were significant differences
+in the distributions.
+%TODO probably want ot make sure distributions are normal first
+
+The results suggest that:
+- Outcome 1: No significant differences. Does this diminish the need for our technique?
+	Perhaps we can say that our approach confirms that Bowory's sampling was reasonable,
+	and that euses is a good 
+- Outcome 2: No differences between open source sets, but some between open and closed. 
+	Tells us that the closed ones are systematically different.
+- Outcome 3: Differnece between open source sets. The most interesting! Says something about
+	sampling methods.
+
+\subsection{RQ3}
+
 \section{Limtations}
 
 Limitations of both the technique, and the study.

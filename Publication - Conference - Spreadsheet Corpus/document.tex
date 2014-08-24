@@ -3,7 +3,8 @@
 \begin{document}
 
 \conferenceinfo{ICSE}{'15 Florence}
-\title{Drawing Generalizable Conclusions about Software:\\A Sampling Technique and New Spreasheet Corpus}
+\title{Drawing Representative Conclusions about Software:\\A Sampling Technique and New Spreadsheet Corpus}
+%TODO title not quite right
 % \numberofauthors{4}
 % \author{
 % Yoonki Song, Titus Barik, Brittany Johnson, and Emerson Murphy-Hill\\
@@ -23,22 +24,27 @@
 Spreadsheets users are the largest group of software developers on
 the planet, and much of what researchers know about this group derives
 from the EUSES corpus, a corpus that includes about 5,000 spreadsheets
-mined from the internet a decade ago.
+mined from the web a decade ago.
 While the EUSES corpus has yielded many interesting research results,
-researchers have questioned how representative the EUSES corpus is of 
-all existing spreadsheets.
-In this paper, we introduce a new spreadsheet corpus more than
-two orders of magnitude larger than the EUSES corpus
-and describe a new sampling techinque that allows researchers to 
-create their own open-source corpus that is representative of 
-a closed-source corpus.
+the corpus is aging and small, relative to the number of spreadsheets
+used today.
+Moreover, the EUSES corpus was obtained entirely from spreadsheets posted
+to the public web.
+In this paper, we introduce several new spreadsheet corpora: one corpus contains
+about 1.5 million open-source spreadsheets mined from the public web, 
+and three others mined from formerly closed-source email attachments from the Stratfor intelligence
+company, the Enron energy firm, and the Syrian government.
+%TODO
+We also use these corpora to introduce a new sampling techinque that allows researchers to 
+create their own open-source software corpus that is representative of 
+a a closed-source corpus.
 %TODO what follows is technically an eval -- does our technique produce more representative
 %	corpus with respect to three studies?
-We illustrate the utility of our corpus and our technique by 
-highlighting the differences between corpuses, including by
-replicating three small spreadsheet studies on different
-corpuses.
-%TODO maybe some results, whatever they are
+We evaluate the utility of our technique by 
+replicating part of a recent spreadsheet study and showing
+how results from subsampled open-source are equivalent to 
+results obtained from the original closed-source corpus.
+%TODO add some interesting results
 \end{abstract}
 
 \section{Introduction}

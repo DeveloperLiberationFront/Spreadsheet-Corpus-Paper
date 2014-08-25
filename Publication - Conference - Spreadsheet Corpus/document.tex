@@ -34,12 +34,9 @@ In this paper, we introduce several new spreadsheet corpora: one corpus contains
 about 1.5 million open-source spreadsheets mined from the public web, 
 and three others mined from formerly closed-source email attachments from the Stratfor intelligence
 company, the Enron energy firm, and the Syrian government.
-%TODO
 We also use these corpora to introduce a new sampling techinque that allows researchers to 
 create their own open-source software corpus that is representative of 
 a a closed-source corpus.
-%TODO what follows is technically an eval -- does our technique produce more representative
-%	corpus with respect to three studies?
 We evaluate the utility of our technique by 
 replicating part of a recent spreadsheet study and showing
 how results from subsampled open-source are equivalent to 
@@ -101,7 +98,10 @@ The contributions of this paper are:
 
 Maybe a bit more depth in spreadsheet research, showing how serious it is.
 
-A good bit from Mei Nagappan's representativeness paper~\cite{nag13}.
+A good bit from Mei Nagappan's representativeness paper~\cite{nagappan2013diversity}.
+
+Based on that sampling thing represented by the stats professor,
+though that's not a technique.
 
 \section{Our Technique}
 
@@ -109,10 +109,69 @@ The aim of our sampling technique is to take a corpus of software, be it
 a collection of Excel spreadsheets, open source projects on Github, 
 or some other software, and extract a subset of that corpus that represents
 some other corpus.
+The former we will call the ``subsampled corpus'', and the latter the
+``target corpus.''
 
-Based on that sampling thing represented by the stats professor.
+The reason we want a corpus to approximate a target corpus is because the 
+target may be unavailable for analysis.
+For example, suppose that we wanted to do an anaysis of financial spreadsheets,
+but we had no open-source financial spreadsheets available.
+Suppose further that we do know several financial firms that have such spreadsheets,
+but (a) they cannot legally share those spreadsheets with us, and (b) if we somehow wrote a paper
+about those spreadsheets, we would be unable to share the spreadsheets with other researchers
+to enable future replications.
 
-Section closing: talk about you need a good corpus to sample from.
+Thus, we designed our technique to extract a subsampled corpus that \emph{represents}
+the target corpus.
+In our example, the target corpus is the closed-source set of spreadsheets that the 
+financial firms has.
+The corpus from which we draw our subsample should be some large, existing corpus, such
+as the existing EUSES corpus or our open-source corpus introduced in this paper.
+
+%TODO maybe ``subsample'' should be ``subcorpus''?
+
+Prior to our technique, drawing a representative subsample of software was largely
+informal.
+In the case of the EUSES corpus, an expicitly labeled subsample is identified as ``financial spreadsheets'',
+which were identified as such because the Google search for this subsample
+contained the word ``financial.''
+However, it is possible that some spreadsheets that could be categorized as financial do not
+use the word ``financial,'' and that some spreadsheets that do contain that keyword might not
+actually be financial at all.
+Analagously, in prior work we've shown that explicit labels are poor indicators of developers'
+activities; in the domain of refactoring, commits containing refactoring keywords are \emph{less}
+likely to contain refactoring code transformations than commits without those keywords~\cite{HowWeRefactor}.
+
+%TODO more subsections, so this is easier to skim
+
+Informally, our technique works as follows.
+For each item (spreadsheet, software project, etc.) in a target corpus and each
+item in a sample corpus, extract a vector of $n$ metrics from each item.
+These metrics might be, for example, for spreadsheets, number of cells,
+number of formulas, and number of worksheets.
+Then, given the number of items we desire in our subsampled corpus,
+we select that many items from our sample corpus such that
+the set of metric vectors in the subsample approximates thet set
+of metric vectors in the target corpus.
+
+In the remainder of this section, we describe Nagappan and colleagues'
+diversity algorithm, on which our technqiue is based; 
+a more technical description of technique and our R-based implementation;
+and limitations of our approach.
+
+\subsection{Nagappan's Diversity Algorithm}
+
+It's like theirs~\cite{nagappan2013diversity}.
+
+\subsection{Our Technique and Implementation}
+
+\subsection{Limitations}
+
+Obviously, only as good as our metrics. Implies correlation. Counterexample: color.
+This is kind of what we do intutively anyway, when we say we chose large, mature projects -- we intend them
+to be representative.
+
+You need a good corpus to sample from.
 
 \section{The Corpora}
 
@@ -135,7 +194,7 @@ Distribution comparison to EUSES here?
 \centering
 \includegraphics[width=\columnwidth]{functions.png}
 \caption{Distribution of number of fuctions per spreadsheet, for 3 spreadsheet corpuses.}
-\label{fig:effectiveness}
+\label{fig:functions}
 \end{figure}
 
 \subsection{The Enron Corpus}
@@ -159,10 +218,6 @@ In total, the 11.136 spreadsheets contain 49,872 worksheets. This is a aveage of
 
 \subsection{The Stratfor Corpus}
 
-
-
-\section{Conclusion}
-
 \section{Distributions from Real Closed-Source Code}
 
 Describe dataset.
@@ -185,7 +240,7 @@ used for evaluation purposes.
 \subsection{CheckCell}
 
 Our first replication is an evaluation of Barowy, Gochev, and Berger's
-CheckCell tool~\cite{Barowy14}, a tool that was built to identify spreadsheet
+CheckCell tool~\cite{barowy14}, a tool that was built to identify spreadsheet
 cells that have an inordanately high impact on calculations.
 The intuition is that such cells may contain data input errors.
 
@@ -217,15 +272,18 @@ The results suggest that:
 	and that euses is a good 
 - Outcome 2: No differences between open source sets, but some between open and closed. 
 	Tells us that the closed ones are systematically different.
-- Outcome 3: Differnece between open source sets. The most interesting! Says something about
+- Outcome 3: Differnece between open source sets. The most interesting! Says something about 
 	sampling methods.
 
 \subsection{RQ3}
 
 \section{Limtations}
 
-Limitations of both the technique, and the study.
+Limitations to the study.
 
 \section{Conclusions}
+
+\bibliographystyle{plain}
+\bibliography{references}
 
 \end{document}

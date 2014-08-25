@@ -56,8 +56,14 @@ Spreadsheets are an important type of software development.
 There's existing rich-reasearch on spreadsheets.
 Examples.
 
-\subsection{State of the art}
-Currently, the most used corpus for spreadsheet analysis is the EUSES corpus. This corpus contains spreadsheets obtained mainly by searching in search engines, so it contains spreadsheets that are publicly available. However, industrial case studies performed by us and other researchers have raised questions about the representativeness of this corpus, as spreadsheets we  encounter in industry tend to be bigger and be more complex. Hence, we believe there is a need for a corpus providing a more realistic test set for spreadsheet researchers.
+Currently, the most used corpus for spreadsheet analysis is the EUSES corpus.
+This corpus contains spreadsheets obtained mainly by searching in search
+engines, so it contains spreadsheets that are publicly available. However,
+industrial case studies performed by us and other researchers have raised
+questions about the representativeness of this corpus~\cite{something}, as spreadsheets we 
+encounter in industry tend to be bigger and be more complex. Hence, we believe
+there is a need for a corpus providing a more realistic test set for spreadsheet
+researchers.
 
 Where corpus comes from, how it was derived, how many spreadsheets.
 
@@ -78,15 +84,17 @@ types of software as well.
 The contributions of this paper are:
 
 \begin{itemize}
-  \item A technique for creating representative samples of open-source
-  		software;
   \item An open-source corpus of spreadsheets more than two orders of magnitude larger
- 		than the existing state of the art, along with a never-before analyzed
- 		pseudo-closed-source corpus;
-  \item A set of distributions of real closed-source spreadsheets that can be
-  		used as parameters to our technique; and
-  \item An evaluation that suggests our technique can produce more representative
-  		results than using the existing state of the art corpus.
+ 		than the existing state of the art, along with three never-before analyzed
+ 		formerly closed-source corpus;
+  \item A technique for creating representative samples of open-source
+  		software; and
+  %TODO the following is bonus, if we can
+  %\item A set of distributions of real closed-source spreadsheets that can be
+  %		used as parameters to our technique; and
+  \item An evaluation that demonstrates 
+		how research results on a corpus obtained using our subsampling technique
+		are similar to results obtained from a target corpus.
 \end{itemize}
 
 \section{Prior Work}
@@ -97,20 +105,27 @@ A good bit from Mei Nagappan's representativeness paper~\cite{nag13}.
 
 \section{Our Technique}
 
+The aim of our sampling technique is to take a corpus of software, be it 
+a collection of Excel spreadsheets, open source projects on Github, 
+or some other software, and extract a subset of that corpus that represents
+some other corpus.
+
 Based on that sampling thing represented by the stats professor.
 
 Section closing: talk about you need a good corpus to sample from.
 
-\section{Our Open-Source Corpus}
+\section{The Corpora}
+
+\subsection{The Open-Source Corpus}
 
 We took this opportunity to update the old corpus, using roughly similar
 methodology.
 
-\subsection{Mining Methodology}
+\subsubsection{Mining Methodology}
 
 How we mined the web.
 
-\subsection{Corpus Characterization}
+\subsubsection{Corpus Characterization}
 
 Number of spreadsheets, a few stats about them.
 
@@ -123,22 +138,28 @@ Distribution comparison to EUSES here?
 \label{fig:effectiveness}
 \end{figure}
 
-\section{The Enron Data Set}
+\subsection{The Enron Corpus}
 
 While the sample of the Google spreadsheets provides us with a better set than the current EUSES corpus, it still misses the context of real-life industry spreadsheets. Therefore we present a second data set in the paper, derived from the Enron E-mail Archive. This is an large database of over 600,000 emails containing emails from by 158 Enron employees, which was purchased and released by researchers at the University of Massachusetts Amherst. 
 
-\subsection{Data}
+\subsubsection{Data}
 First, we requested the most recent version of the dataset, via this form. We got access to v1.3, last updated 29 July, 2013. This version contains 130 folders (one per employee, each containing one or more pst file) with 190 pst files, and is 53 gigs in size.
 
-\subsection{Getting the spreadsheets}
+\subsubsection{Getting the spreadsheets}
 Using the systool's outlook attachment extractor TODO: link, we obtained the spreadsheets from the pst. With the extractor, obtaining all spreadsheets took about 6 hours, on an i7 machine with 16 gig memory. In total, the email set contains 265,586 files (32.3 gigs), of which over 50.000 are Excel files. Among those files are 11.985 unique spreadsheets.
 
-\subsubsection{Analysis}
+\paragraph{Analysis}
 For all the spreadsheets, we ran the Spreadsheet Scantool, developed at Delft University of Technology. This tool runs on the previously developed Breviz core, made for spreadsheet visualization and smell detection. TODO: References. 11.136 spreadsheets could be analyzed, the others were corrupt, password protected, or otherwise unreadable.
 
-\subsection{The spreadsheets}
-\subsubsection{Worksheets}
+\subsubsection{The spreadsheets}
+\paragraph{Worksheets}
 In total, the 11.136 spreadsheets contain 49,872 worksheets. This is a aveage of 4.4 worksheets per spreadsheet. Most spreadsheets have 3 worksheets, most likely because this is the default number of worksheets in 
+
+\subsection{The Syrian Corpus}
+
+\subsection{The Stratfor Corpus}
+
+
 
 \section{Conclusion}
 

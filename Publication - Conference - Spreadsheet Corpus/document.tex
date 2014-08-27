@@ -46,6 +46,13 @@ results obtained from the original closed-source corpus.
 
 \section{Introduction}
 
+Spreadsheets are an important type of software that is developed today.
+Scaffidi and colleagues estimate that there are more than 55 million end user
+spreadsheet or database users in the US alone~\cite{scaffidi05}.
+
+
+Spreadsheets are a type of software development.
+
 Spreadsheets are an important type of software development.
 -how many people use them,
 -examples of errors and their impact (e.g, Reinhard and Rogoff)
@@ -225,21 +232,10 @@ Talk about distribution. (plot distribution on same axis, maybe three different 
 
 \section{Evaluation}
 
-RQ1: Are distributions statistically significantly different for the spreadsheet sets discussed here?
-RQ2: Do the conclusions from existing studies change depending on what corpus they use? (Compare uses to others)
-RQ3: Do conclusions drawn using our sampling technique better approximate conclusions from original sample?
+RQ1: Do the conclusions from existing studies change depending on what corpus they use? (Compare uses to others)
+RQ2: Do conclusions drawn using our sampling technique approximate conclusions from original sample?
 
-\subsection{RQ1}
-
-\subsection{RQ2}
-
-We next replicate three prior studies about spreadsheets in our new corpora,
-with an aim towards understanding how results differ when different corpora are
-used for evaluation purposes.
-
-\subsection{CheckCell}
-
-Our first replication is an evaluation of Barowy, Gochev, and Berger's
+The study we replicate is an evaluation of Barowy, Gochev, and Berger's
 CheckCell tool~\cite{barowy14}, a tool that was built to identify spreadsheet
 cells that have an inordanately high impact on calculations.
 The intuition is that such cells may contain data input errors.
@@ -250,6 +246,8 @@ formula from the EUSES corpus, then ran their analysis on a commodity laptop.
 They conclude, ``For most of the spreadsheets, CheckCell completes its analysis in under 50 seconds;
 for all but two, it completes in under five minutes.''
 The results for all spreadsheets are shown as blue bars on Figure~\ref{fig:effectiveness}.
+
+%TODO Titus wants to do more than just time -- wants to detect errors.
 
 \begin{figure}
 \centering
@@ -275,7 +273,6 @@ The results suggest that:
 - Outcome 3: Differnece between open source sets. The most interesting! Says something about 
 	sampling methods.
 
-\subsection{RQ3}
 
 \section{Limtations}
 

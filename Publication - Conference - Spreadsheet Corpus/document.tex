@@ -586,10 +586,28 @@ You need a good corpus to sample from.
 
 \subsection{The Open-Source Corpus}
 
-We took this opportunity to update the old corpus, using roughly similar
-methodology.
+% URLs from original Dremel query: 1,626,610
+% Excel spreadsheets downloaded from EC2: 1,534,669
+% Size of spreadsheets downloaded from EC2: TODO(tbarik)
+
+We obtained the Excel spreadsheets for this corpus through a proprietary, corporate index of public world wide web documents from July 16, 2014. 
+%
+Each document object within the index contains a canonical URL, and reasonable efforts, such as duplication elimination, are made so that each object points to unique content. 
+%
+From this index, we extracted the canonical URLs for which the document format was tagged as \texttt{application/vnd.ms-excel}, that is, a Microsoft Excel spreadsheet. 
+%
+From this process, we obtained approximately 1.6 million spreadsheet URLs.
+
+We then fed these URLs into a download script, discarding URLs that returned an invalid status code (such as \texttt{404: Not Found}), URLs that referenced FTP content (URLs beginning with \texttt{ftp://}), and URLs whose download failed to complete within 60 seconds on a 100 MB/s network link. 
+%
+We re-ran the script for failed URLs after a 24 our period, to account for sites that may have been temporarily down. 
+%
+In total, we downloaded 1.5 million Microsoft Excel spreadsheets (820 GB). 
 
 \subsubsection{Mining Methodology}
+
+From the corpus: 
+
 
 How we mined the web.
 

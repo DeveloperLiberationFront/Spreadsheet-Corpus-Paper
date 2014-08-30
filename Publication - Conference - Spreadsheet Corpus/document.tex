@@ -448,6 +448,8 @@ results obtained from the original closed-source corpus.
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
+\section{Introduction}
+
 Spreadsheets are an important type of software that is developed today.
 Scaffidi and colleagues estimate that there are more than 55 million end user
 spreadsheet or database users in the US alone~\cite{scaffidi2005estimating}.
@@ -464,28 +466,42 @@ However, after the original spreadsheet was shared with scientists doing a repli
 study, it was revealed that the original spreadsheet contained a selection error,
 which reversed the paper's main findings about debt and growth~\cite{coy}.
 
-There's existing rich-reasearch on spreadsheets.
-Examples.
+As a consequence of the importance of spreadsheets, significant existing research
+has studied spreadsheets in a variety of contexts.
+For example, at ICSE 2007, Abraham and Erwig evaluated GoalDebug, a spreadsheet
+debugger~\cite{abraham2007goaldebug}; at ICSE 2012; Hermans and colleagues presented a method for
+detecting and visualizating spreadsheet smells~\cite{hermans2012detecting}; and 
+at ICSE 2014, Dou and colleagues presented AmCheck,
+a tool that finds and repairs ambiguous computations~\cite{dou2014spreadsheet}.
+%TODO we need to drive home spreadsheet stuff appeasr at ICSE if a non-spreadsheet person gets the paper
 
-Currently, the most used corpus for spreadsheet analysis is the EUSES corpus.
-This corpus contains spreadsheets obtained mainly by searching in search
-engines, so it contains spreadsheets that are publicly available. However,
-industrial case studies performed by us and other researchers have raised
-questions about the representativeness of this corpus~\cite{something}, as spreadsheets we 
-encounter in industry tend to be bigger and be more complex. Hence, we believe
-there is a need for a corpus providing a more realistic test set for spreadsheet
-researchers.
+A significant amout of prior work on spreadsheets does formative or evaluative 
+studies using the EUSES corpus, a set of 4,498 spreadsheets published in 2005.
+Abraham and Erwig use the EUSES corpus to motivate their approach~\cite{abraham2007goaldebug};
+Hermans and colleagues used EUSES to set thresholds 
+for their code smells~\cite{hermans2012detecting}; and Dou and colleagues
+use EUSES to determine how often ambiguous computation occurs~\cite{dou2014spreadsheet}.
+
+% TODO has someone else raised public concerns about the representtaiveness of EUSES?
+% Currently, the most used corpus for spreadsheet analysis is the EUSES corpus.
+% This corpus contains spreadsheets obtained mainly by searching in search
+% engines, so it contains spreadsheets that are publicly available. However,
+% industrial case studies performed by us and other researchers have raised
+% questions about the representativeness of this corpus~\cite{something}, as spreadsheets we 
+% encounter in industry tend to be bigger and be more complex. Hence, we believe
+% there is a need for a corpus providing a more realistic test set for spreadsheet
+% researchers.
+
 
 Where corpus comes from, how it was derived, how many spreadsheets.
 
-
-Examples, probably from threats sections.
-Impact: if not representative, conclusions do not generalize.
-Example from prior paper.
-
-In this paper, we present a technique that enables researchers
-to draw more generalizable conclusions in their studies.
-In a nutshell, the technique involves\ldots
+Although it's served well for over a decade, in this paper we offer the community 
+several new spreadsheet corpora.
+Why do we need other ones?
+1) Has not been updated since 1.0 in nearly a decade, leaving a large number of recent
+spreadsheets out.
+2) Only (largely) open-source, not closed source.
+3) Small by today's software standards; sourceforge has 350K, github?
 
 Although this paper focuses on spreadsheets, in reality 
 spreadsheets are a microcosm of broader software development,

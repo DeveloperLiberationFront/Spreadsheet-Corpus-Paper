@@ -696,12 +696,29 @@ First, we requested the most recent version of the dataset, via this form. We go
 \subsubsection{Getting the spreadsheets}
 Using the systool's outlook attachment extractor TODO: link, we obtained the spreadsheets from the pst. With the extractor, obtaining all spreadsheets took about 6 hours, on an i7 machine with 16 gig memory. In total, the email set contains 265,586 files (32.3 gigs), of which over 50.000 are Excel files. Among those files are 11.985 unique spreadsheets.
 
-\paragraph{Analysis}
-For all the spreadsheets, we ran the Spreadsheet Scantool, developed at Delft University of Technology. This tool runs on the previously developed Breviz core, made for spreadsheet visualization and smell detection. TODO: References. 11.136 spreadsheets could be analyzed, the others were corrupt, password protected, or otherwise unreadable.
+\section{Analysis of the Spreadsheets}
+For all the spreadsheets, we ran the Spreadsheet Scantool, developed at Delft University of Technology. This tool runs on the previously developed Breviz core, made for spreadsheet visualization and smell detection. TODO: References. 14,579 spreadsheets could be analyzed, the others were password protected, corrupt, or otherwise unreadable.
 
-\subsubsection{The spreadsheets}
-\paragraph{Worksheets}
-In total, the 11.136 spreadsheets contain 49,872 worksheets. This is a aveage of 4.4 worksheets per spreadsheet. Most spreadsheets have 3 worksheets, most likely because this is the default number of worksheets in 
+\subsection{Files}
+In total, our set of analyzable spreadsheets contains of 14,579 files. Their average file size is TODO.
+
+\subsection{Worksheets}
+In total the 14,579 spreadsheets contain 51,015 worksheets, which is an average of 4,6 worksheets per spreadsheet. The spreadsheet with the most worksheets has no less than 96 worksheets. The following graph shows the distribution of worksheets over the spreadsheets.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{Worksheets.png}
+\caption{Distribution of number of worksheets over the spreadsheet files.}
+\label{overflow}
+\end{figure}
+
+\subsection{Cells}
+The 14,579 spreadsheets together have 102,919,261 non-empty cells of which 6,684,233 are formulas.
+
+\subsection{Formulas}
+Not all spreadsheets in the Enron set contain formulas: there are ... files containing formulas, which is about half of all spreadsheets in the set. Note this ratio is a lot higher than that of the EUSES corpus, which contains ... spreadsheets but only 1711 with formulas.
+
+Together the ... files with formulas contain ... formulas and ... unique formulas. This means the average spreadsheet \emph{with formulas} contains ... of them.
 
 \subsection{The Syrian Corpus}
 

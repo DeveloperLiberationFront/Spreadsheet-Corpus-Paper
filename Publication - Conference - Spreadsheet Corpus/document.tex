@@ -334,7 +334,8 @@
 % \url{my_url_here}.
 
 
-
+\usepackage{tikz}
+\usepackage{booktabs}
 
 
 % *** Do not adjust lengths that control margins, column widths, etc. ***
@@ -755,9 +756,27 @@ The results suggest that:
   sampling methods.
 
 
-\section{Limtations}
+\section{Limitations}
 
-Limitations to the study.
+Automation (VBA/Interop) vs. snapshot parsing. Can't know definitely when
+something is an error.
+%
+Dependency analysis limitations.
+%
+Parsing function limitations.
+%
+Excel 95 spreadsheets not supported. Not a big problem though. EUSES corpus did have some of these. Trade-off between keeping files in Excel 97 and changing them to xlsx -- macros dissapear in the latter unless it is xlsm.
+%
+VBA analysis not supported until new security model.
+%
+What is an error? Move somewhere else: Cells containing formulas that result in an error. The error appears because the formula doesn't use the expected syntax, arguments, or data types. Error values include \texttt{\#\#\#\#\#}, \texttt{\#DIV/0!}, \texttt{\#N/A}, \texttt{\#NAME?}, \texttt{\#NULL!}, \texttt{\#NUM!}, \texttt{\#REF!}, and \texttt{\#VALUE!}. Each error value has different causes and is resolved in different ways. Also, change this text since it matches MSDN right now.
+
+% http://www.gemboxsoftware.com/Spreadsheet/Help/html/P_GemBox_Spreadsheet_ExcelCell_Formula.htm
+Old XLS format requires all formulas to be parsed and saved to XLS files as special tokens in RPN (Reverse Polish notation). GemBox.Spreadsheet only knows how to parse limited set of formulas listed below.
+
+New XLSX (Open XML) format stores formulas as strings and leaves formula parsing to applications that read XLSX documents. Therefore, ALL formulas are supported when writing/reading XLSX files.
+
+Other limitations to the study.
 
 \section{Conclusions}
 

@@ -64,6 +64,8 @@
 %
 \documentclass[conference]{IEEEtran}
 %
+\usepackage{url}
+
 % If IEEEtran.cls has not been installed into the LaTeX system files,
 % manually specify the path to it like:
 % \documentclass[conference]{../sty/IEEEtran}
@@ -492,29 +494,52 @@ use EUSES to determine how often ambiguous computation occurs~\cite{dou2014sprea
 % there is a need for a corpus providing a more realistic test set for spreadsheet
 % researchers.
 
+In this paper, we introduce several new spreadsheet corpora.
+Why do we need more spreadsheet corpora, beyond EUSES, which has served the community so well?
+\begin{itemize}
+  \item
+  	Although EUSES is the largest spreadsheet corpus today, it is relatively small by
+  	modern software repository standards; EUSES has about 4.5 thousand spreadsheets, while 
+  	Sourceforge lists 350 thousand software projects\footnote{\url{http://sourceforge.net/blog/sourceforge-myths/}} 
+  	and OpenHub lists about 666 thousand
+  	software projects.\footnote{\url{https://www.openhub.net/explore/projects}}
+  \item
+  	Most EUSES spreadsheets were obtained through the public world-wide-web,
+  	what we might call \emph{open source} spreadsheets; the remaining 97 spreadsheets were obtained
+  	largely from textbook examples. What is missing is a substantial set of \emph{closed source} spreadsheets, that is,
+  	spreadsheets that were not intended to be made available to the public.
+  \item
+  	The EUSES corpus is not publicly available. To use it, ``you must be a researcher in the field of 
+  	software engineering, end-user programming, human-computer interaction, or 
+  	usability'',\footnote{\url{http://eusesconsortium.org/resources.php}} 
+  	and even then, the researcher must explicitly ask for a copy by email.
+  \item
+  	The EUSES corpus is about a decade old, leaving out a large number of recently
+  	created spreadsheets.
+  	%TODO probably want to know something about the dates, if you're claiming you're newer
+\end{itemize}
 
-Where corpus comes from, how it was derived, how many spreadsheets.
-
-Although it's served well for over a decade, in this paper we offer the community 
-several new spreadsheet corpora.
-Why do we need other ones?
-1) Has not been updated since 1.0 in nearly a decade, leaving a large number of recent
-spreadsheets out.
-2) Only (largely) open-source, not closed source.
-3) Small by today's software standards; sourceforge has 350K, github?
-
-Although this paper focuses on spreadsheets, in reality 
-spreadsheets are a microcosm of broader software development,
-and consequently the techniques presented here can be used for other 
-types of software as well.
+In this paper we also introduce a new technique and associated tool designed to enable researchers 
+to create subsamples of a software corpus such that the subsample approximates 
+another corpus.
+This is useful in situations where a research group has access to a private software
+corpus that they cannot pubically release, but can instead release a corpus profile
+that enables other researchers to run their analysis on a simulation of the private corpus.
+For example, in the context of spreasheets, if a research group has access to 
+a private corpus of healthcare spreadsheets, they can extract and share a corpus profile
+with other researchers, who can then use our spreadsheet corpora and the extracted profile to create
+a new public subsample that approximates the private corpus.
 
 The contributions of this paper are:
 
 \begin{itemize}
   \item An open-source corpus of spreadsheets more than two orders of magnitude larger
- 		than the existing state of the art, along with three never-before analyzed
- 		formerly closed-source corpus;
-  \item A technique for creating representative samples of open-source
+ 		than the existing state of the art,;
+  \item Three never-before analyzed, formerly closed-source corpora of spreadsheets extracted
+  		from private email exchanges made public by Wikileaks and the United States Federal 
+  		Energy Regulatory Commission;
+  		%TODO each larget than EUSES?
+  \item A new technique for creating representative subsamples of open-source
   		software; and
   %TODO the following is bonus, if we can
   %\item A set of distributions of real closed-source spreadsheets that can be

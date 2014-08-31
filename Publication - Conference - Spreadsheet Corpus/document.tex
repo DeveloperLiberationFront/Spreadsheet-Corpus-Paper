@@ -336,7 +336,7 @@
 
 \usepackage{tikz}
 \usepackage{booktabs}
-
+\usepackage{tabularx}
 
 % *** Do not adjust lengths that control margins, column widths, etc. ***
 % *** Do not use packages that alter fonts (such as pslatex).         ***
@@ -743,6 +743,39 @@ Number of spreadsheets, a few stats about them.
 Distribution comparison to EUSES here?
 
 From Enron:
+
+\section{Collected Dimensions}
+
+What do we say here about why we have different metris than the EUSES paper? Metrics are at least in part collected due to convenience (as the API gives them directly). Other metrics are computed because?
+
+\begin{table}[!t]
+	\caption{Collected Dimensions}
+	\label{tab:corpusoverview}
+	
+	\begin{tabularx}{\columnwidth}{clX}
+		\toprule
+		& \textbf{Metric} & \textbf{Description}\\
+		\midrule	  	
+	  	1 & Worksheets & Use \texttt{Count} property directly from the GemBox API.\\
+	  	2 & Functions & Extract the function calls from a formula cell.\\
+	  	3 & Unique functions & Add each observed function to a set and count items in the set.\\
+	  	4 & Cells & --\\
+	  	5 & Non-empty cells & --\\
+	  	6 & Formula cells & --\\
+	  	7 & Unique formulas & --\\
+	  	8 & Related worksheets & --\\
+	  	9 & Error cells & --\\
+	  	10 & Named ranges & --\\
+	  	11 & User-defined functions & --\\
+	  	12 & Formulas referring to other cells & --\\
+	  	13 & Formulas referenced by other cells & --\\
+	  	14 & Formulas used only once & --\\
+	  	15 & Formulas used more than once & --\\
+	  	16 & Most frequently used formula & --\\
+	  	% TODO: FunctionUsingList9. What?	  	
+		\bottomrule
+	\end{tabularx}
+\end{table}
 
 \section{Analysis of the Spreadsheets}
 For all the spreadsheets, we ran the Spreadsheet Scantool, developed at Delft University of Technology. This tool runs on the previously developed Breviz core, made for spreadsheet visualization and smell detection. TODO: References. 14,579 spreadsheets could be analyzed, the others were password protected, corrupt, or otherwise unreadable.

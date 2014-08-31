@@ -526,7 +526,7 @@ another corpus.
 This is useful in situations where a research group has access to a private software
 corpus that they cannot pubically release, but can instead release a corpus profile
 that enables other researchers to run their analysis on a simulation of the private corpus.
-For example, in the context of spreasheets, if a research group has access to 
+For example, in the context of spreadsheets, if a research group has access to 
 a private corpus of healthcare spreadsheets, they can extract and share a corpus profile
 with other researchers, who can then use our spreadsheet corpora and the extracted profile to create
 a new public subsample that approximates the private corpus.
@@ -539,7 +539,7 @@ The contributions of this paper are:
   \item Three never-before analyzed, formerly closed-source corpora of spreadsheets extracted
   		from private email exchanges made public by Wikileaks and the United States Federal 
   		Energy Regulatory Commission;
-  		%TODO each larget than EUSES?
+  		%TODO each larger than EUSES?
   \item A new technique for creating representative subsamples of open-source
   		software; and
   %TODO the following is bonus, if we can
@@ -647,6 +647,8 @@ You need a good corpus to sample from.
 
 \subsection{The Open-Source Corpus}
 
+
+
 % URLs from original Dremel query: 1,626,610
 % Excel spreadsheets downloaded from EC2: 1,534,669
 % Size of spreadsheets downloaded from EC2: TODO(tbarik)
@@ -665,18 +667,73 @@ We re-ran the script for failed URLs after a 24 our period, to account for sites
 %
 In total, we downloaded 1.5 million Microsoft Excel spreadsheets (820 GB). 
 
-\subsubsection{Mining Methodology}
+%TODO where can the reader download the files?
 
-From the corpus: 
+\subsection{The Enron Corpus}
 
+While our Open Source corpus provides a larger data set than the EUSES corpus, 
+it likely still misses the context of closed-source spreadsheets. 
+Therefore we present a second data set in the paper, derived from
+the Enron E-mail Archive.\footnote{\url{https://www.cs.cmu.edu/~./enron/}} 
+This is an large database of 619,446 emails
+containing emails from by 158 Enron employees~\cite{klimt2004introducing}.
+The email dataset was originally released by the United States 
+Federal Energy Regulatory Commission, and contain emails from the 
+late 1990s to the early 2000s in the wake the bankrupcy of the Enron
+energy corporation~\cite{grieve}.
 
-How we mined the web.
+We first requested the most recent version of the dataset, 
+version 1.3, last updated July 29 , 2013. This version contains 130
+folders with 190 Micrsoft Outlook data files, and is 53 gigabytes in size.
+Using the SysTools' Outlook Attachment 
+Extractor,\footnote{\url{http://www.systoolsgroup.com/outlook-attachment-extractor.html}} 
+we extracted the spreadsheets from the Outlook data files. 
+%With the extractor, obtaining all spreadsheets took
+%about 6 hours, on an i7 machine with 16 gig memory. 
+In total, the email data set
+contains 265,586 files (32.3 gigs), of which over 50,000 are Excel spreadsheets. 
+Using MD5 hashes to find and remove duplicates spreadsheet files,
+we are left with 11,985 unique spreadsheets.
 
-\subsubsection{Corpus Characterization}
+\subsection{The Stratfor Corpus}
+
+In 2012, Wikileaks published more than 5 million private emails from the
+intelligence company Stratfor.\footnote{\url{https://wikileaks.org/the-gifiles.html}}
+While the dataset contained emails from 2000 to 2012, 
+the year with the most emails was 2011.
+From this dataset, we extracted 10,529 
+unique Excel files, about 2.25 gigabytes in total.
+
+\subsection{The Syrian Corpus}
+
+In 2012, Wikileaks pushed more than 2 million private emails from
+the Syrian government and affiliated companies.\footnote{\url{https://wikileaks.org/syria-files/}}
+While the dataset contains emails from 2006 through 2012, 
+the year with the most emails was 2012.
+From this dataset, we extracted 2,633 spreadsheets, about 227 megabytes in total.
+
+\subsection{Corpora Characterization}
+
+Compare the spreadsheet sets to each other.
 
 Number of spreadsheets, a few stats about them.
 
 Distribution comparison to EUSES here?
+
+From Enron:
+
+\paragraph{Analysis}
+For all the spreadsheets, we ran the Spreadsheet Scantool, developed at Delft
+University of Technology. This tool runs on the previously developed Breviz
+core, made for spreadsheet visualization and smell detection. TODO: References.
+11.136 spreadsheets could be analyzed, the others were corrupt, password
+protected, or otherwise unreadable.
+
+\subsubsection{The spreadsheets}
+\paragraph{Worksheets}
+In total, the 11.136 spreadsheets contain 49,872 worksheets. This is a aveage of
+4.4 worksheets per spreadsheet. Most spreadsheets have 3 worksheets, most likely
+because this is the default number of worksheets in
 
 
 \begin{figure}[!t]
@@ -685,27 +742,6 @@ Distribution comparison to EUSES here?
 \caption{Distribution of number of fuctions per spreadsheet, for 3 spreadsheet corpuses.}
 \label{fig:functions}
 \end{figure}
-
-\subsection{The Enron Corpus}
-
-While the sample of the Google spreadsheets provides us with a better set than the current EUSES corpus, it still misses the context of real-life industry spreadsheets. Therefore we present a second data set in the paper, derived from the Enron E-mail Archive. This is an large database of over 600,000 emails containing emails from by 158 Enron employees, which was purchased and released by researchers at the University of Massachusetts Amherst. 
-
-\subsubsection{Data}
-First, we requested the most recent version of the dataset, via this form. We got access to v1.3, last updated 29 July, 2013. This version contains 130 folders (one per employee, each containing one or more pst file) with 190 pst files, and is 53 gigs in size.
-
-\subsubsection{Getting the spreadsheets}
-Using the systool's outlook attachment extractor TODO: link, we obtained the spreadsheets from the pst. With the extractor, obtaining all spreadsheets took about 6 hours, on an i7 machine with 16 gig memory. In total, the email set contains 265,586 files (32.3 gigs), of which over 50.000 are Excel files. Among those files are 11.985 unique spreadsheets.
-
-\paragraph{Analysis}
-For all the spreadsheets, we ran the Spreadsheet Scantool, developed at Delft University of Technology. This tool runs on the previously developed Breviz core, made for spreadsheet visualization and smell detection. TODO: References. 11.136 spreadsheets could be analyzed, the others were corrupt, password protected, or otherwise unreadable.
-
-\subsubsection{The spreadsheets}
-\paragraph{Worksheets}
-In total, the 11.136 spreadsheets contain 49,872 worksheets. This is a aveage of 4.4 worksheets per spreadsheet. Most spreadsheets have 3 worksheets, most likely because this is the default number of worksheets in 
-
-\subsection{The Syrian Corpus}
-
-\subsection{The Stratfor Corpus}
 
 \section{Distributions from Real Closed-Source Code}
 

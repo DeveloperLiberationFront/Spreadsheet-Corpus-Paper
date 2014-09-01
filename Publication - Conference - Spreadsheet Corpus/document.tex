@@ -552,14 +552,43 @@ The contributions of this paper are:
 
 \section{Prior Work}
 
-Maybe a bit more depth in spreadsheet research, showing how serious it is.
+%Maybe a bit more depth in spreadsheet research, showing how serious it is.
 
-A good bit from Mei Nagappan's representativeness paper~\cite{nagappan2013diversity}.
+\subsection{Software Engineering Corpora}
 
-Based on that sampling thing represented by the stats professor,
-though that's not a technique.
+Other corpora out there (mostly the seeded error ones).
 
-\section{Our Technique}
+Maybe mention some other large corpora for general software.
+
+\subsection{Sampling Techniques}
+
+Our technique builds on Nagappan and colleagues' technique 
+software diversity, as we discuss in depth in 
+Section~\ref{sec:technique}~\cite{nagappan2013diversity}.
+Apart from the technical differences, our approach and theirs 
+differ mostly in the intent of the approach.
+Nagappan and colleagues' approach is designed to allow researchers to
+(a) select a subset of software projects in a universe of projects,
+such that the subset is representative of the universe,
+and (b) compare how well a given set of projects represents
+the universe.
+In contrast, our approach is designed to allow researchers to 
+select select a subset of a universe such that the subset represents
+a sample, perhaps closed-source, set.
+%This is depicted graphically in figure\ldots
+
+Our subsampling technique is somewhat similar to 
+propensity score matching,
+a technique used in comparative studies where researchers wish to 
+measure the effect of a treatment by accounting for covariates~\cite{rosenbaum1983central}.
+Part of propsensity score matching is matching each subject in a treatment 
+group with a subject in a control group, based on some similarity metric,
+such as the Mahalanobis metric~\cite{mahalanobis1936generalized}.
+Our approach also uses similarity to match subjects across two groups of samples.
+Our approach is different in that we use similarity to match subjects before
+a study begins for the purpose of running the study on just one of the samples.
+
+\section{Our Technique}\label{sec:technique}
 
 The aim of our sampling technique is to take a corpus of software, be it 
 a collection of Excel spreadsheets, open source projects on Github, 

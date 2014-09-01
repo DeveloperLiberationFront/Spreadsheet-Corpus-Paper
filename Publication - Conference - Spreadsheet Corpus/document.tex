@@ -615,7 +615,30 @@ diversity algorithm, on which our technqiue is based;
 a more technical description of technique and our R-based implementation;
 and limitations of our approach.
 
-\subsection{Nagappan's Diversity Algorithm}
+\subsection{Algorithm for Adequate Sample Coverage}
+
+\textbf{Input:} Two sets of corpora, $A$ and $B.$
+
+\textbf{Problem}: Given a 
+
+\textbf{Output}:
+
+\begin{figure}[!t]
+\begin{algorithmic}
+\If {$i\geq maxval$}
+    \State $i\gets 0$
+\Else
+    \If {$i+k\leq maxval$}
+        \State $i\gets i+k$
+    \EndIf
+\EndIf
+\end{algorithmic}
+\caption{A sample algorithm.}
+\label{fig:algorithm}
+\end{figure}
+It's like theirs~\cite{nagappan2013diversity}.
+
+\subsection{Algorithm for Replication}
 
 \begin{figure}[!t]
 \begin{algorithmic}
@@ -631,9 +654,23 @@ and limitations of our approach.
 \label{fig:algorithm}
 \end{figure}
 
-It's like theirs~\cite{nagappan2013diversity}.
+\textbf{Input:} A set of corpora ...
 
-\subsection{Our Technique and Implementation}
+\textbf{Problem:} Given a private corpus whose spreadsheets are not available, but whose features for each spreadsheet are known, construct a replicated spreadsheet from a public corpus that replicates the features of the private corpus.
+
+\textbf{Output:}
+
+
+Mahalanobis distance, defined as:
+
+\begin{equation}
+d(\vec{x}, \vec{y}) = \sqrt{(\vec{x} - \vec{y})^TS^{-1}(\vec{x}-\vec{y})}
+\end{equation}
+where $S^{-1}$ is the inverse covariance matrix.
+
+Some assumptions that we make. Normal distribution for each feature (oops). $y$ is not a subset of $U$, we just assume that it approximates something that exists in $U$. No boolean data allowed.The algorithmic cost of this is quite high $O(n)O(m)$; suggest random sampling within threshold?
+
+How do we measure performance? Let's use MSE.
 
 \subsection{Limitations}
 
@@ -652,8 +689,8 @@ A summary of the spreadsheets is shown in Table~\ref{tab:corpusoverview}.
 \begin{table}
 	\caption{A summary of the state of the art corpus, \textit{in italics},
 	and our corpora.}\label{tab:corpusoverview}
-	
-	\begin{tabular}{ l r r }
+	\centering
+	\begin{tabular}{lrr}
 		\toprule
 		\textbf{Corpus} & \textbf{Number of Spreadsheets} & \textbf{Size of Corpus}\\
 		\midrule	  	

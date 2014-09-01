@@ -566,16 +566,29 @@ Our technique builds on Nagappan and colleagues' technique
 software diversity, as we discuss in depth in 
 Section~\ref{sec:technique}~\cite{nagappan2013diversity}.
 Apart from the technical differences, our approach and theirs 
-differ mostly in the intent of the approach.
+differ mostly in the intent, depicted graphically in Figure~\ref{fig:approachCompare}.
 Nagappan and colleagues' approach is designed to allow researchers to
-(a) select a subset of software projects in a universe of projects,
-such that the subset is representative of the universe,
-and (b) compare how well a given set of projects represents
-the universe.
+(1) select a subset of software projects in a universe of projects (Set X in the figure),
+such that the subset  (Set Z) is representative of the universe,
+and (b) compare how well a given set of projects (Set Y) represents
+the universe in terms of a coverage metric.
 In contrast, our approach is designed to allow researchers to 
-select select a subset of a universe such that the subset represents
-a sample, perhaps closed-source, set.
-%This is depicted graphically in figure\ldots
+select select a subset (Set D) of a universe (Set A) such that the subset represents
+a sample, perhaps closed-source, set (Set B).
+
+%TODO This figure isn't perfect. Improvements:
+%		Representative set (Sets Z and D) should actually be representative, not random.
+%		Coverage calculation should be correct
+%		Set C is mysteriousy missing from this explanation (Emerson guesses it'll be useful later)
+%		Some points are duplicates (e.g., circles in Set C)
+%		lighten up axes lines
+
+\begin{figure*}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/ApproachComparisonGraphs.pdf}
+\caption{Comparison of Nagappan and colleagues' approach (at left) to ours (at right).}
+\label{fig:approachCompare}
+\end{figure*}
 
 Our subsampling technique is somewhat similar to 
 propensity score matching,
